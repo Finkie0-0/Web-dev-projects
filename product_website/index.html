@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product Page Designs</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="product">
+                <div class="gallery">
+                    <img src="images/female_front.jpg" id="productImg">
+                    <div class="controls">
+                        <span class="btn active"></span>
+                        <span class="btn"></span>
+                        <span class="btn"></span>
+                    </div>
+                </div>
+                <div class="details">
+                    <h1>Comfortable Underwear</h1>
+                    <h2>$15.00</h2>
+                    <h3><del>$18.00</del></h3>
+                    <p>Each piece of cloth is made of the finest of material.<br>
+                        We pride ourselves when it comes to the quality of our products</p>
+                    <form>
+                        <div class="size-select">
+                            <p>Size</p>
+                            <label for="small">
+                                <input type="radio" name="size" id="small">
+                                <span>S</span>
+                            </label>
+                            <label for="medium">
+                                <input type="radio" name="size" id="medium">
+                                <span>M</span>
+                            </label>
+                            <label for="large">
+                                <input type="radio" name="size" id="large">
+                                <span>L</span>
+                            </label>
+                            <label for="x-large">
+                                <input type="radio" name="size" id="x-large">
+                                <span>XL</span>
+                            </label>
+                            <label for="xx-large">
+                                <input type="radio" name="size" id="xx-large">
+                                <span>XXL</span>
+                            </label>
+                        </div>
+                        <div class="color-select">
+                            <p>Color</p>
+                            <label for="red">
+                                <input type="radio" name="color" id="red">
+                                <span class="color-1"></span>
+                            </label>
+                            <label for="navy-blue">
+                                <input type="radio" name="color" id="navy-blue">
+                                <span class="color-2"></span>
+                            </label>
+                            <label for="black">
+                                <input type="radio" name="color" id="black">
+                                <span class="color-3"></span>
+                            </label>
+                            <label for="gray">
+                                <input type="radio" name="color" id="gray">
+                                <span class="color-4"></span>
+                            </label>
+                        </div>
+
+                        <div class="quantity-select">
+                            <p>Quantity</p>
+                            <input type="number" value="1">
+                        </div>
+                        <button>Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            
+            let productImg = document.getElementById("productImg");
+            let btn = document.getElementsByClassName("btn");
+
+            btn[0].onclick = function(){
+                productImg.src = "images/female_front.jpg";
+
+                for (bt of btn){
+                    bt.classlist.remove("active");
+                }
+                this.classList.add("active");
+            }
+            btn[1].onclick = function(){
+                productImg.src = "images/female_left_behind.jpg";
+
+                for (bt of btn){
+                    bt.classlist.remove("active");
+                }
+                this.classList.add("active");
+                
+            }
+            btn[2].onclick = function(){
+                productImg.src = "images/male_right_side.jpg";
+
+                for (bt of btn){
+                    bt.classlist.remove("active");
+                }
+                this.classList.add("active");
+
+            }
+
+        </script>
+
+
+    </body>
+</html>
