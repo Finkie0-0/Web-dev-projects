@@ -2,3 +2,4 @@
 - Signup page
 - Progress bar experimentation
 - Basic e-commerce website
+- Text animation experiment
