@@ -1,0 +1,74 @@
+*,
+::before,
+::after{
+    box-sizing: border-box;
+    margin: 0;
+}
+:root{
+    --bg:rgb(19, 7, 7);
+    --glow:rgb(255, 0, 0);
+}
+body{
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    min-height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+}
+.glow-button{
+    color: var(--glow);
+    display: inline-block;
+    text-decoration: none;
+    font-size:4rem;
+    cursor: pointer;
+    border: var(--glow) 0.5rem solid;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    text-shadow: 0 0 0.125em hsl(0, 0%, 100%),
+    0 0 0.12em currentColor;
+    box-shadow: inset 0 0 0.5em var(--glow),
+    0 0 0.85em var(--glow), 0 0 0.2em hsl(0, 0%, 100%);
+    position: relative;
+}
+.glow-button::before{
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    background: var(--glow);
+    top: 120%;
+    left:0;
+    width: 100%;
+    height: 100%;
+    
+    transform: perspective(1em) rotateX(30deg) scale(1, 0.4);
+    filter: blur(1em);
+    opacity: 0.5;
+    transition: 1000ms linear;
+}
+.glow-button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.3em var(--glow);
+    background: var(--glow);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1000ms linear;
+}
+.glow-button:hover,
+.glow-button:focus{
+    color: var(--bg);
+    text-shadow: none;
+}
+.glow-button:hover::before,
+.glow-button:focus::after{
+    opacity: 1;
+}
+.glow-button:hover:after,
+.glow-button:focus:before{
+    opacity: 1;
+}
